@@ -1,3 +1,6 @@
+* Provide class config for `use_output_inserted` (default true) for insert SQL. Fixed #381.
+
+
 ## v4.1.6
 
 * Fix parens around `enable_default_unicode_types`. Fixes #562

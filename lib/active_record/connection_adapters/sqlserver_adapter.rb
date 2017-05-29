@@ -40,12 +40,13 @@ module ActiveRecord
       SUPPORTED_VERSIONS          = [2005, 2008, 2010, 2011, 2012, 2014, 2016]
 
       attr_reader :database_version, :database_year, :spid, :product_level, :product_version, :edition
-
+      cattr_accessor :use_output_inserted, instance_accessor: false
       cattr_accessor :native_text_database_type, :native_binary_database_type, :native_string_database_type,
                      :enable_default_unicode_types, :auto_connect, :cs_equality_operator,
                      :lowercase_schema_reflection, :auto_connect_duration, :showplan_option
 
       self.enable_default_unicode_types = true
+      self.use_output_inserted = true
 
       class BindSubstitution < Arel::Visitors::SQLServer # :nodoc:
         include Arel::Visitors::BindVisitor
